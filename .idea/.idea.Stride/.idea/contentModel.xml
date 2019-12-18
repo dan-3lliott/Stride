@@ -37,69 +37,8 @@
       <e p="wwwroot" t="Include">
         <e p="css" t="Include">
           <e p="main.css" t="Include" />
-          <e p="util.css" t="Include" />
         </e>
         <e p="fonts" t="Include">
-          <e p="font-awesome-4.7.0" t="Include">
-            <e p="css" t="Include">
-              <e p="font-awesome.css" t="Include" />
-              <e p="font-awesome.min.css" t="Include" />
-            </e>
-            <e p="fonts" t="Include">
-              <e p="fontawesome-webfont.eot" t="Include" />
-              <e p="fontawesome-webfont.svg" t="Include" />
-              <e p="fontawesome-webfont.ttf" t="Include" />
-              <e p="fontawesome-webfont.woff" t="Include" />
-              <e p="fontawesome-webfont.woff2" t="Include" />
-              <e p="FontAwesome.otf" t="Include" />
-            </e>
-            <e p="HELP-US-OUT.txt" t="Include" />
-            <e p="less" t="Include">
-              <e p="animated.less" t="Include" />
-              <e p="bordered-pulled.less" t="Include" />
-              <e p="core.less" t="Include" />
-              <e p="fixed-width.less" t="Include" />
-              <e p="font-awesome.less" t="Include" />
-              <e p="icons.less" t="Include" />
-              <e p="larger.less" t="Include" />
-              <e p="list.less" t="Include" />
-              <e p="mixins.less" t="Include" />
-              <e p="path.less" t="Include" />
-              <e p="rotated-flipped.less" t="Include" />
-              <e p="screen-reader.less" t="Include" />
-              <e p="stacked.less" t="Include" />
-              <e p="variables.less" t="Include" />
-            </e>
-            <e p="scss" t="Include">
-              <e p="_animated.scss" t="Include" />
-              <e p="_bordered-pulled.scss" t="Include" />
-              <e p="_core.scss" t="Include" />
-              <e p="_fixed-width.scss" t="Include" />
-              <e p="_icons.scss" t="Include" />
-              <e p="_larger.scss" t="Include" />
-              <e p="_list.scss" t="Include" />
-              <e p="_mixins.scss" t="Include" />
-              <e p="_path.scss" t="Include" />
-              <e p="_rotated-flipped.scss" t="Include" />
-              <e p="_screen-reader.scss" t="Include" />
-              <e p="_stacked.scss" t="Include" />
-              <e p="_variables.scss" t="Include" />
-              <e p="font-awesome.scss" t="Include" />
-            </e>
-          </e>
-          <e p="iconic" t="Include">
-            <e p="css" t="Include">
-              <e p="material-design-iconic-font.css" t="Include" />
-              <e p="material-design-iconic-font.min.css" t="Include" />
-            </e>
-            <e p="fonts" t="Include">
-              <e p="Material-Design-Iconic-Font.eot" t="Include" />
-              <e p="Material-Design-Iconic-Font.svg" t="Include" />
-              <e p="Material-Design-Iconic-Font.ttf" t="Include" />
-              <e p="Material-Design-Iconic-Font.woff" t="Include" />
-              <e p="Material-Design-Iconic-Font.woff2" t="Include" />
-            </e>
-          </e>
           <e p="poppins" t="Include">
             <e p="Poppins-Black.ttf" t="Include" />
             <e p="Poppins-BlackItalic.ttf" t="Include" />

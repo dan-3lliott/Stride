@@ -1,66 +1,35 @@
-
+﻿
 (function ($) {
     "use strict";
-
-
-    /*==================================================================
-    [ Focus input ]*/
-    $('.input100').each(function(){
-        $(this).on('blur', function(){
-            if($(this).val().trim() != "") {
-                $(this).addClass('has-val');
-            }
-            else {
-                $(this).removeClass('has-val');
-            }
-        })    
-    })
-  
-  
-    /*==================================================================
-    [ Validate ]*/
-    var input = $('.validate-input .input100');
-
-    $('.validate-form').on('submit',function(){
-        var check = true;
-
-        for(var i=0; i<input.length; i++) {
-            if(validate(input[i]) == false){
-                showValidate(input[i]);
-                check=false;
-            }
-        }
-
-        return check;
-    });
+    
+    //hide validate alert if element is focused
     
     $('.validate-form .input100').each(function(){
         $(this).focus(function(){
-           hideValidate(this);
+            hideValidate(this);
         });
     });
 
+    //validate
+    
     function validate (input) {
         if($(input).val().trim() == '') {
             return false;
         }
-        else {
-            if ($(input).attr('name') == 'num') {
-                if ($(input).val().length != 7) {
-                    return false;
-                }
-            }
-        }
     }
 
+    //show validation alert
+    
     function showValidate(input) {
         var thisAlert = $(input).parent();
         $(thisAlert).addClass('alert-validate');
     }
 
+    //hide validation alert
+    
     function hideValidate(input) {
         var thisAlert = $(input).parent();
         $(thisAlert).removeClass('alert-validate');
     }
-   
+
 })(jQuery);
