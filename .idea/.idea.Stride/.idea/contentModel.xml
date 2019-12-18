@@ -127,71 +127,10 @@
           </e>
         </e>
         <e p="js" t="Include">
-          <e p="main.js" t="Include" />
-        </e>
-        <e p="vendor" t="Include">
-          <e p="animate" t="Include">
-            <e p="animate.css" t="Include" />
-          </e>
-          <e p="animsition" t="Include">
-            <e p="css" t="Include">
-              <e p="animsition.css" t="Include" />
-              <e p="animsition.min.css" t="Include" />
-            </e>
-            <e p="js" t="Include">
-              <e p="animsition.js" t="Include" />
-              <e p="animsition.min.js" t="Include" />
-            </e>
-          </e>
-          <e p="bootstrap" t="Include">
-            <e p="css" t="Include">
-              <e p="bootstrap-grid.css" t="Include" />
-              <e p="bootstrap-grid.css.map" t="Include" />
-              <e p="bootstrap-grid.min.css" t="Include" />
-              <e p="bootstrap-grid.min.css.map" t="Include" />
-              <e p="bootstrap-reboot.css" t="Include" />
-              <e p="bootstrap-reboot.css.map" t="Include" />
-              <e p="bootstrap-reboot.min.css" t="Include" />
-              <e p="bootstrap-reboot.min.css.map" t="Include" />
-              <e p="bootstrap.css" t="Include" />
-              <e p="bootstrap.css.map" t="Include" />
-              <e p="bootstrap.min.css" t="Include" />
-              <e p="bootstrap.min.css.map" t="Include" />
-            </e>
-            <e p="js" t="Include">
-              <e p="bootstrap.js" t="Include" />
-              <e p="bootstrap.min.js" t="Include" />
-              <e p="popper.js" t="Include" />
-              <e p="popper.min.js" t="Include" />
-              <e p="tooltip.js" t="Include" />
-            </e>
-          </e>
-          <e p="countdowntime" t="Include">
-            <e p="countdowntime.js" t="Include" />
-          </e>
-          <e p="css-hamburgers" t="Include">
-            <e p="hamburgers.css" t="Include" />
-            <e p="hamburgers.min.css" t="Include" />
-          </e>
-          <e p="daterangepicker" t="Include">
-            <e p="daterangepicker.css" t="Include" />
-            <e p="daterangepicker.js" t="Include" />
-            <e p="moment.js" t="Include" />
-            <e p="moment.min.js" t="Include" />
-          </e>
           <e p="jquery" t="Include">
             <e p="jquery-3.2.1.min.js" t="Include" />
           </e>
-          <e p="perfect-scrollbar" t="Include">
-            <e p="perfect-scrollbar.css" t="Include" />
-            <e p="perfect-scrollbar.min.js" t="Include" />
-          </e>
-          <e p="select2" t="Include">
-            <e p="select2.css" t="Include" />
-            <e p="select2.js" t="Include" />
-            <e p="select2.min.css" t="Include" />
-            <e p="select2.min.js" t="Include" />
-          </e>
+          <e p="main.js" t="Include" />
         </e>
       </e>
     </e>
