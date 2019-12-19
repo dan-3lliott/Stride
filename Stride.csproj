@@ -44,4 +44,12 @@
       <_ContentIncludedByDefault Remove="wwwroot\fonts\font-awesome-4.7.0\scss\_variables.scss" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="MySql.Data" Version="8.0.18" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Sql" />
+    </ItemGroup>
+
 </Project>

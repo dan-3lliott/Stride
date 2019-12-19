@@ -9,7 +9,14 @@ namespace Stride.Pages
     {
         public void OnPost(string user, string pass)
         {
-            //do something
+            if (Database.Auth(user, pass))
+            {
+                //login successful
+            }
+            else
+            {
+                //login failed
+            }
         }
     }
 }
