@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Stride.Pages
@@ -11,12 +10,10 @@ namespace Stride.Pages
         {
             if (Database.Auth(user, pass))
             {
-                //login successful
+                Response.Redirect("Index");
             }
-            else
-            {
-                //login failed
-            }
+            //if not, show the same validation alerts
+            
         }
     }
 }

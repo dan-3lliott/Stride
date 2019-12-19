@@ -11,7 +11,10 @@ namespace Stride.Pages
     {
         public void OnGet()
         {
-            Response.Redirect("Login");
+            if (!Database.IsAuth())
+            {
+                Response.Redirect("Login");
+            }
         }
     }
 }

@@ -4,6 +4,7 @@ namespace Stride
 {
     public class Database
     {
+        private static bool _auth;
         public static MySqlConnectionStringBuilder Builder()
         {
             var builder = new MySqlConnectionStringBuilder
@@ -25,10 +26,16 @@ namespace Stride
                     command.CommandText = "SELECT * FROM users WHERE username = '" + user + "' and password = '" + pass + "'";
                     using (var reader = command.ExecuteReader())
                     {
-                        return (reader.HasRows);
+                        _auth = reader.HasRows;
+                        return _auth;
                     }
                 }
             }
+        }
+
+        public static bool IsAuth()
+        {
+            return _auth;
         }
     }
 }

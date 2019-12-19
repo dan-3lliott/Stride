@@ -40,16 +40,7 @@
     });
 
     function validate (input) {
-        if($(input).val().trim() == '') {
-            return false;
-        }
-        else {
-            if ($(input).attr('name') == 'num') {
-                if ($(input).val().length != 7) {
-                    return false;
-                }
-            }
-        }
+        return (!$(input).val().trim() == '');
     }
 
     function showValidate(input) {
