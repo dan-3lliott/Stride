@@ -11,8 +11,8 @@ namespace Stride
             {
                 Server = "localhost",
                 Database = "Stride",
-                UserID = "dan",
-                Password = "danpassword"
+                UserID = "root",
+                Password = ""
             };
             return builder;
         }

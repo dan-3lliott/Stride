@@ -10,10 +10,17 @@ namespace Stride.Pages
         {
             if (Database.Auth(user, pass))
             {
+                //once authenticated, go to main page
                 Response.Redirect("Index");
             }
-            //if not, show the same validation alerts
-            
+            else
+            {
+                //show validation alert
+                ViewData["InvalidLogin"] = "alert-validate";
+                //keep username in the form, ensure that label stays up
+                ViewData["Username"] = user;
+                ViewData["HasUsername"] = "has-val";
+            }
         }
     }
 }
