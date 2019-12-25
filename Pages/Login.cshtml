@@ -7,9 +7,10 @@
 
 <head>
 	<title>Log in to your account</title>
-    <link rel="shortcut icon" href="images/icons/favicon.ico" type="image/x-icon"/>
+	<link rel="shortcut icon" href="images/icons/favicon.ico" type="image/x-icon"/>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
+
 <body>
 <div class="limiter">
 	<div class="container-login100">
@@ -18,20 +19,15 @@
 				<span class="login100-form-title" style="padding-bottom: 28px">
 					Welcome
 				</span>
-				<span class="login100-form-title" style="padding-bottom: 48px">
-					<i class="zmdi zmdi-font"></i>
-				</span>
-
+				<span class="login100-form-title" style="padding-bottom: 24px"></span>
 				<div class="wrap-input100 validate-input @ViewData["InvalidLogin"]" data-validate="Check Username">
-					<input class="input100 @ViewData["HasUsername"]" type="text" name="user" value="@ViewData["Username"]">
+					<input class="input100 @ViewData["HasUsername"]" type="text" name="user" value="@ViewData["Username"]"/>
 					<span class="focus-input100" data-placeholder="Username"></span>
 				</div>
-
 				<div class="wrap-input100 validate-input @ViewData["InvalidLogin"]" data-validate="Check Password">
-					<input class="input100" type="password" name="pass">
+					<input class="input100" type="password" name="pass"/>
 					<span class="focus-input100" data-placeholder="Password"></span>
 				</div>
-
 				<div class="container-login100-form-btn">
 					<div class="wrap-login100-form-btn">
 						<div class="login100-form-bgbtn"></div>
