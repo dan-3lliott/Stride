@@ -12,7 +12,7 @@
                 $(this).removeClass('has-val');
             }
         })
-    })
+    });
     
     //validate input
     

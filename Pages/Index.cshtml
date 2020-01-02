@@ -14,15 +14,53 @@
 <body>
 <div class="limiter">
 	<div class="container-login100">
-		<div class="wrap-login100">
+		<div class="wrap-login100"> <!--Each of these divs is a single column-->
 			<form class="login100-form">
 				<div class="wrap-input100">
-					<input class="input100" type="text" name="pathway"/>
-					<span class="focus-input100" data-placeholder="Pathway"></span>
+					<select class="input100" name="eduplan">
+						<option disabled selected value style="display:none"/>
+						<option value="hsdiploma">High School Diploma</option>
+						<option value="technical">Technical Training</option>
+						<option value="associate">Associate Degree</option>
+						<option value="bachelors">Bachelor's Degree</option>
+						<option value="advanced">Advanced Degree</option>
+						<option value="military">Military</option>
+						<option value="other">Other</option>
+					</select>
+					<span class="focus-input100" data-placeholder="Education Plan"></span>
 				</div>
 				<div class="wrap-input100">
 					<input class="input100" type="text" name="college"/>
-					<span class="focus-input100" data-placeholder="College"></span>
+					<span class="focus-input100" data-placeholder="Top College"></span>
+				</div>
+				<div class="wrap-input100">
+					<input class="input100" type="text" name="careerpath"/>
+					<span class="focus-input100" data-placeholder="Career Path"></span>
+				</div>
+				<div class="wrap-input100">
+					<select class="input100" name="ethnicity">
+                    	<option disabled selected value style="display:none"/>
+	                    <option value="white">White or Caucasian</option>
+	                    <option value="asian">Asian</option>
+	                    <option value="hispanicorlatino">Hispanic or Latino Origin</option>
+	                    <option value="africanamerican">Black or African American</option>
+	                    <option value="nativeamerican">Native American or Alaska Native</option>
+	                    <option value="pacificislander">Hawaiian or Other Pacific Islander</option>
+	                    <option value="twoormore">Two or more races</option>
+                    </select>
+					<span class="focus-input100" data-placeholder="Ethnicity"></span>
+				</div>
+			</form>
+		</div>
+		<div class="wrap-login100">
+			<form class="login100-form">
+				<div class="wrap-input100">
+					<input class="input100" type="text" name="pathway2"/>
+					<span class="focus-input100" data-placeholder="Pathway2"></span>
+				</div>
+				<div class="wrap-input100">
+					<input class="input100" type="text" name="college2"/>
+					<span class="focus-input100" data-placeholder="College2"></span>
 				</div>
 			</form>
 		</div>
