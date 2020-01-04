@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Stride.Pages
 {
+    [IgnoreAntiforgeryToken(Order = 1001)]
     public class IndexModel : PageModel
     {
         public void OnGet()
@@ -15,6 +16,10 @@ namespace Stride.Pages
             {
                 Response.Redirect("Login");
             }
+        }
+        public void OnPost(string eduplan, string college, string careerpath, string ethnicity, string gender)
+        {
+            Database.SaveData(eduplan, college, careerpath, ethnicity, gender);
         }
     }
 }
