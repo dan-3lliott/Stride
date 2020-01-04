@@ -1,5 +1,4 @@
-﻿using System.Data;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 
 namespace Stride
 {
@@ -48,9 +47,19 @@ namespace Stride
                 conn.Open();
                 using (var command = conn.CreateCommand())
                 {
-                    command.CommandText = "UPDATE students SET eduplan = '" + eduplan + "', college = '" + college +
-                                          "', careerpath = '" + careerpath + "', ethnicity = '" + ethnicity +
-                                          "', gender = '" + gender + "' WHERE studentnumber = '1234567'";
+                    command.CommandText = "UPDATE students SET eduplan = @eduplan, college = @college, careerpath = @careerpath, ethnicity = @ethnicity, gender = @gender WHERE studentnumber = @studentnumber;";
+                    command.Parameters.Add("@eduplan", MySqlDbType.VarChar);
+                    command.Parameters["@eduplan"].Value = eduplan;
+                    command.Parameters.Add("@college", MySqlDbType.VarChar);
+                    command.Parameters["@college"].Value = college;
+                    command.Parameters.Add("@careerpath", MySqlDbType.VarChar);
+                    command.Parameters["@careerpath"].Value = careerpath;
+                    command.Parameters.Add("@ethnicity", MySqlDbType.VarChar);
+                    command.Parameters["@ethnicity"].Value = ethnicity;
+                    command.Parameters.Add("@gender", MySqlDbType.VarChar);
+                    command.Parameters["@gender"].Value = gender;
+                    command.Parameters.Add("@studentnumber", MySqlDbType.VarChar);
+                    command.Parameters["@studentnumber"].Value = 1234567;
                     command.ExecuteNonQuery();
                 }
             }
