@@ -15,7 +15,7 @@
 <div class="limiter">
 	<div class="container-login100">
 		<div class="wrap-login100"> <!--Each of these divs is a single column, this first one is a basic information display with values from database-->
-			<span class="login100-form-title" style="padding-bottom: 28px">
+			<span class="login100-form-title" style="padding-bottom: 38px">
             	Student Information
             </span>
         	<form class="login100-form">
@@ -36,7 +36,7 @@
 		<div class="wrap-login100">
 			<form class="login100-form" method="post">
 				<div class="wrap-input100">
-					<select class="input100" name="eduplan">
+					<select class="input100" name="eduplan" value='@ViewData["eduplan"]'>
 						<option disabled selected value style="display:none"/>
 						<option value="hsdiploma">High School Diploma</option>
 						<option value="technical">Technical Training</option>
@@ -49,15 +49,15 @@
 					<span class="focus-input100" data-placeholder="Education Plan"></span>
 				</div>
 				<div class="wrap-input100">
-					<input class="input100" type="text" name="college"/>
+					<input class="input100" type="text" name="college" value='@ViewData["college"]'/>
 					<span class="focus-input100" data-placeholder="Top College"></span>
 				</div>
 				<div class="wrap-input100">
-					<input class="input100" type="text" name="careerpath"/>
+					<input class="input100" type="text" name="careerpath" value='@ViewData["careerpath"]'/>
 					<span class="focus-input100" data-placeholder="Career Path"></span>
 				</div>
 				<div class="wrap-input100">
-					<select class="input100" name="ethnicity">
+					<select class="input100" name="ethnicity" value='@ViewData["ethnicity"]'>
 						<option disabled selected value style="display:none"/>
 						<option value="white">White or Caucasian</option>
 						<option value="asian">Asian</option>
@@ -70,7 +70,7 @@
 					<span class="focus-input100" data-placeholder="Ethnicity"></span>
 				</div>
 				<div class="wrap-input100">
-					<select class="input100" name="gender">
+					<select class="input100" name="gender" value='@ViewData["gender"]'>
 						<option disabled selected value style="display:none"/>
 						<option value="male">Male</option>
 						<option value="female">Female</option>

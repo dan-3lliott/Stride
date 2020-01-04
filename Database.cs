@@ -64,5 +64,33 @@ namespace Stride
                 }
             }
         }
+        public static string[] LoadSaveData(string studentnumber)
+        {
+            string eduplan;
+            string college;
+            string careerpath;
+            string ethnicity;
+            string gender;
+            using (var conn = new MySqlConnection(Builder().ConnectionString))
+            {
+                conn.Open();
+                using (var command = conn.CreateCommand())
+                {
+                    command.CommandText = "SELECT * FROM students WHERE studentnumber = @studentnumber;";
+                    command.Parameters.Add("@studentnumber", MySqlDbType.VarChar);
+                    command.Parameters["@studentnumber"].Value = studentnumber;
+                    using (var reader = command.ExecuteReader())
+                    {
+                        reader.Read();
+                        eduplan = reader.GetString("eduplan");
+                        college = reader.GetString("college");
+                        careerpath = reader.GetString("careerpath");
+                        ethnicity = reader.GetString("ethnicity");
+                        gender = reader.GetString("gender");
+                    }
+                }
+            }
+            return new []{eduplan, college, careerpath, ethnicity, gender};
+        }
     }
 }
