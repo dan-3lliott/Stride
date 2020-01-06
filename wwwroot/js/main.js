@@ -1,11 +1,11 @@
 ﻿(function ($) {
     "use strict";
     
-    //don't allow text to lower if there is text present
+    //detect if text is present, style accordingly
     
     $('.input100').each(function(){
         $(this).on('blur', function(){
-            if($(this).val().trim() != "") {
+            if($(this).val().trim() !== "") {
                 $(this).addClass('has-val');
             }
             else {
@@ -16,13 +16,13 @@
     
     //validate input
     
-    var input = $('.validate-input .input100');
+    let input = $('.validate-input .input100');
 
     $('.validate-form').on('submit',function(){
-        var check = true;
+        let check = true;
 
-        for(var i=0; i<input.length; i++) {
-            if(validate(input[i]) == false){
+        for(let i=0; i<input.length; i++) {
+            if(validate(input[i]) === false){
                 showValidate(input[i]);
                 check=false;
             }
@@ -40,16 +40,16 @@
     });
 
     function validate (input) {
-        return (!$(input).val().trim() == '');
+        return ($(input).val().trim() !== '');
     }
 
     function showValidate(input) {
-        var thisAlert = $(input).parent();
+        let thisAlert = $(input).parent();
         $(thisAlert).addClass('alert-validate');
     }
 
     function hideValidate(input) {
-        var thisAlert = $(input).parent();
+        let thisAlert = $(input).parent();
         $(thisAlert).removeClass('alert-validate');
     }
 

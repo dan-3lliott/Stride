@@ -3,7 +3,6 @@ CREATE TABLE Users (
     password varchar(255) NOT NULL
 );
 
-
 CREATE USER 'dan'@'localhost' IDENTIFIED BY 'danpassword';
 
 GRANT CREATE, INSERT, SELECT, UPDATE ON Stride TO 'dan'@'localhost';
