@@ -36,15 +36,15 @@
 		<div class="wrap-login100">
 			<form class="login100-form" method="post">
 				<div class="wrap-input100">
-					<select class="input100" name="eduplan" value='@ViewData["eduplan"]'>
+					<select class="input100 select" name="eduplan" selectedval='@ViewData["eduplan"]'>
 						<option disabled selected value style="display:none"/>
-						<option value="hsdiploma">High School Diploma</option>
-						<option value="technical">Technical Training</option>
-						<option value="associate">Associate Degree</option>
-						<option value="bachelors">Bachelor's Degree</option>
-						<option value="advanced">Advanced Degree</option>
-						<option value="military">Military</option>
-						<option value="other">Other</option>
+						<option>High School Diploma</option>
+						<option>Technical Training</option>
+						<option>Associate Degree</option>
+						<option>Bachelor's Degree</option>
+						<option>Advanced Degree</option>
+						<option>Military</option>
+						<option>Other</option>
 					</select>
 					<span class="focus-input100" data-placeholder="Education Plan"></span>
 				</div>
@@ -57,24 +57,24 @@
 					<span class="focus-input100" data-placeholder="Career Path"></span>
 				</div>
 				<div class="wrap-input100">
-					<select class="input100" name="ethnicity" value='@ViewData["ethnicity"]'>
+					<select class="input100 select" name="ethnicity" selectedval='@ViewData["ethnicity"]'>
 						<option disabled selected value style="display:none"/>
-						<option value="white">White or Caucasian</option>
-						<option value="asian">Asian</option>
-						<option value="hispanicorlatino">Hispanic or Latino Origin</option>
-						<option value="africanamerican">Black or African American</option>
-						<option value="nativeamerican">Native American or Alaska Native</option>
-						<option value="pacificislander">Hawaiian or Other Pacific Islander</option>
-						<option value="twoormore">Two or more races</option>
+						<option>White or Caucasian</option>
+						<option>Asian</option>
+						<option>Hispanic or Latino Origin</option>
+						<option>Black or African American</option>
+						<option>Native American or Alaska Native</option>
+						<option>Hawaiian or Other Pacific Islander</option>
+						<option>Two or more races</option>
 					</select>
 					<span class="focus-input100" data-placeholder="Ethnicity"></span>
 				</div>
 				<div class="wrap-input100">
-					<select class="input100" name="gender" value='@ViewData["gender"]'>
+					<select class="input100 select" name="gender" selectedval='@ViewData["gender"]'>
 						<option disabled selected value style="display:none"/>
-						<option value="male">Male</option>
-						<option value="female">Female</option>
-						<option value="other">Other</option>
+						<option>Male</option>
+						<option>Female</option>
+						<option>Other</option>
 					</select>
 					<span class="focus-input100" data-placeholder="Gender"></span>
 				</div>

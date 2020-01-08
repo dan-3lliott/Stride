@@ -14,9 +14,12 @@
         });
     });
     
-    //checks for value on page load
+    //checks for value on page load, sets selected value for select boxes if present
     
     $(document).ready(function(){
+        $('.select').each(function(){
+            $(this).val($(this).attr('selectedval'));
+        });
         $('.input100').each(function(){
             if ($(this).val()) {
                 $(this).addClass('has-val');
