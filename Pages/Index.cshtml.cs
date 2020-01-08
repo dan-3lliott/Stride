@@ -14,7 +14,7 @@ namespace Stride.Pages
             }
             else
             {
-                string[] studentData = Database.LoadSaveData("1234567");
+                string[] studentData = Database.LoadSaveData();
                 ViewData["eduplan"] = studentData[0];
                 ViewData["college"] = studentData[1];
                 ViewData["careerpath"] = studentData[2];

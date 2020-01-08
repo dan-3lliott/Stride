@@ -5,6 +5,7 @@ namespace Stride
     public class Database
     {
         private static bool _auth;
+        private static string _primarykey; //primary key is student number
         public static MySqlConnectionStringBuilder Builder()
         {
             var builder = new MySqlConnectionStringBuilder
@@ -31,6 +32,10 @@ namespace Stride
                     using (var reader = command.ExecuteReader())
                     {
                         _auth = reader.HasRows;
+                        if (_auth)
+                        {
+                            _primarykey = user;
+                        }
                         return _auth;
                     }
                 }
@@ -39,6 +44,11 @@ namespace Stride
         public static bool IsAuth()
         {
             return _auth;
+        }
+
+        public static string GetPrimaryKey()
+        {
+            return _primarykey;
         }
         public static void SaveData(string eduplan, string college, string careerpath, string ethnicity, string gender)
         {
@@ -59,12 +69,12 @@ namespace Stride
                     command.Parameters.Add("@gender", MySqlDbType.VarChar);
                     command.Parameters["@gender"].Value = gender;
                     command.Parameters.Add("@studentnumber", MySqlDbType.VarChar);
-                    command.Parameters["@studentnumber"].Value = 1234567;
+                    command.Parameters["@studentnumber"].Value = _primarykey;
                     command.ExecuteNonQuery();
                 }
             }
         }
-        public static string[] LoadSaveData(string studentnumber)
+        public static string[] LoadSaveData()
         {
             string eduplan;
             string college;
@@ -78,7 +88,7 @@ namespace Stride
                 {
                     command.CommandText = "SELECT * FROM students WHERE studentnumber = @studentnumber;";
                     command.Parameters.Add("@studentnumber", MySqlDbType.VarChar);
-                    command.Parameters["@studentnumber"].Value = studentnumber;
+                    command.Parameters["@studentnumber"].Value = _primarykey;
                     using (var reader = command.ExecuteReader())
                     {
                         reader.Read();
