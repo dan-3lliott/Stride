@@ -1,17 +1,27 @@
 ﻿(function ($) {
     "use strict";
     
-    //detect if text is present, style accordingly
+    //checks for value after user leaves field
     
     $('.input100').each(function(){
         $(this).on('blur', function(){
-            if($(this).val().trim() !== "") {
+            if($(this).val()) {
                 $(this).addClass('has-val');
             }
             else {
                 $(this).removeClass('has-val');
             }
-        })
+        });
+    });
+    
+    //checks for value on page load
+    
+    $(document).ready(function(){
+        $('.input100').each(function(){
+            if ($(this).val()) {
+                $(this).addClass('has-val');
+            }
+        });
     });
     
     //validate input
@@ -40,7 +50,7 @@
     });
 
     function validate (input) {
-        return ($(input).val().trim() !== '');
+        return ($(input).val());
     }
 
     function showValidate(input) {
