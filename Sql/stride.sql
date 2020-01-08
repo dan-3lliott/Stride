@@ -4,10 +4,6 @@ CREATE TABLE Users (
     PRIMARY KEY(username)
 );
 
-CREATE USER 'dan'@'localhost' IDENTIFIED BY 'danpassword';
-
-GRANT CREATE, INSERT, SELECT, UPDATE ON Stride TO 'dan'@'localhost';
-
 INSERT INTO Users VALUES ('1234567', 'password');
 
 CREATE TABLE Students (
@@ -20,6 +16,4 @@ CREATE TABLE Students (
     FOREIGN KEY (studentnumber) REFERENCES Users(username)
 );
 
-INSERT INTO Students VALUES ('1234567', 'Advanced Degree', 'UCLA', 'Aerospace Engineering', 'White or Caucasian', 'Female');
-
-UPDATE students SET eduplan = 'Bachelor''s Degree' WHERE studentnumber = '1234567';
+INSERT INTO Students VALUES ('1234567', 'Bachelor''s Degree', 'U of U', 'Software Development', 'White or Caucasian', 'Female');
