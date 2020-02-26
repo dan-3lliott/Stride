@@ -1,5 +1,4 @@
-﻿using System.Data;
-using System.Data.SqlClient;
+﻿using MySql.Data.MySqlClient;
 
 namespace Stride
 {
@@ -7,28 +6,28 @@ namespace Stride
     {
         private static bool _auth;
         private static string _primarykey; //primary key is student number
-        private static SqlConnectionStringBuilder Builder()
+        private static MySqlConnectionStringBuilder Builder()
         {
-            var builder = new SqlConnectionStringBuilder
+            var builder = new MySqlConnectionStringBuilder
             {
-                DataSource = "danstride.database.windows.net",
-                InitialCatalog = "Stride",
-                UserID = "dan",
-                Password = "Stridepassword!"
+                Server = "localhost",
+                Database = "stride",
+                UserID = "root",
+                Password = ""
             };
             return builder;
         }
         public static bool Auth(string user, string pass)
         {
-            using (var conn = new SqlConnection(Builder().ConnectionString))
+            using (var conn = new MySqlConnection(Builder().ConnectionString))
             {
                 conn.Open();
                 using (var command = conn.CreateCommand())
                 {
                     command.CommandText = "SELECT * FROM users WHERE username = @username and password = @password;";
-                    command.Parameters.Add("@username", SqlDbType.VarChar);
+                    command.Parameters.Add("@username", MySqlDbType.VarChar);
                     command.Parameters["@username"].Value = user;
-                    command.Parameters.Add("@password", SqlDbType.VarChar);
+                    command.Parameters.Add("@password", MySqlDbType.VarChar);
                     command.Parameters["@password"].Value = pass;
                     using (var reader = command.ExecuteReader())
                     {
@@ -48,23 +47,23 @@ namespace Stride
         }
         public static void SaveData(string eduplan, string college, string careerpath, string ethnicity, string gender)
         {
-            using (var conn = new SqlConnection(Builder().ConnectionString))
+            using (var conn = new MySqlConnection(Builder().ConnectionString))
             {
                 conn.Open();
                 using (var command = conn.CreateCommand())
                 {
                     command.CommandText = "UPDATE students SET eduplan = @eduplan, college = @college, careerpath = @careerpath, ethnicity = @ethnicity, gender = @gender WHERE studentnumber = @studentnumber;";
-                    command.Parameters.Add("@eduplan", SqlDbType.VarChar);
+                    command.Parameters.Add("@eduplan", MySqlDbType.VarChar);
                     command.Parameters["@eduplan"].Value = eduplan;
-                    command.Parameters.Add("@college", SqlDbType.VarChar);
+                    command.Parameters.Add("@college", MySqlDbType.VarChar);
                     command.Parameters["@college"].Value = college;
-                    command.Parameters.Add("@careerpath", SqlDbType.VarChar);
+                    command.Parameters.Add("@careerpath", MySqlDbType.VarChar);
                     command.Parameters["@careerpath"].Value = careerpath;
-                    command.Parameters.Add("@ethnicity", SqlDbType.VarChar);
+                    command.Parameters.Add("@ethnicity", MySqlDbType.VarChar);
                     command.Parameters["@ethnicity"].Value = ethnicity;
-                    command.Parameters.Add("@gender", SqlDbType.VarChar);
+                    command.Parameters.Add("@gender", MySqlDbType.VarChar);
                     command.Parameters["@gender"].Value = gender;
-                    command.Parameters.Add("@studentnumber", SqlDbType.VarChar);
+                    command.Parameters.Add("@studentnumber", MySqlDbType.VarChar);
                     command.Parameters["@studentnumber"].Value = _primarykey;
                     command.ExecuteNonQuery();
                 }
@@ -77,13 +76,13 @@ namespace Stride
             string careerpath;
             string ethnicity;
             string gender;
-            using (var conn = new SqlConnection(Builder().ConnectionString))
+            using (var conn = new MySqlConnection(Builder().ConnectionString))
             {
                 conn.Open();
                 using (var command = conn.CreateCommand())
                 {
                     command.CommandText = "SELECT * FROM students WHERE studentnumber = @studentnumber;";
-                    command.Parameters.Add("@studentnumber", SqlDbType.VarChar);
+                    command.Parameters.Add("@studentnumber", MySqlDbType.VarChar);
                     command.Parameters["@studentnumber"].Value = _primarykey;
                     using (var reader = command.ExecuteReader())
                     {
