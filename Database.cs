@@ -47,24 +47,32 @@ namespace Stride
         {
             return _auth;
         }
-        public static void SaveStudentData(string eduplan, string college, string careerpath, string ethnicity, string gender)
+        public static void SaveStudentData(string eduplan, string college, string major, string careerpath, string ethnicity, string gender, string ncaa, string firstgen, string onlineinterest)
         {
             using (var conn = new MySqlConnection(Builder().ConnectionString))
             {
                 conn.Open();
                 using (var command = conn.CreateCommand())
                 {
-                    command.CommandText = "UPDATE students SET eduplan = @eduplan, college = @college, careerpath = @careerpath, ethnicity = @ethnicity, gender = @gender WHERE studentnumber = @studentnumber;";
+                    command.CommandText = "UPDATE students SET eduplan = @eduplan, college = @college, major = @major, careerpath = @careerpath, ethnicity = @ethnicity, gender = @gender, ncaa = @ncaa, firstgen = @firstgen, onlineinterest = @onlineinterest WHERE studentnumber = @studentnumber;";
                     command.Parameters.Add("@eduplan", MySqlDbType.VarChar);
                     command.Parameters["@eduplan"].Value = eduplan;
                     command.Parameters.Add("@college", MySqlDbType.VarChar);
                     command.Parameters["@college"].Value = college;
+                    command.Parameters.Add("@major", MySqlDbType.VarChar);
+                    command.Parameters["@major"].Value = major;
                     command.Parameters.Add("@careerpath", MySqlDbType.VarChar);
                     command.Parameters["@careerpath"].Value = careerpath;
                     command.Parameters.Add("@ethnicity", MySqlDbType.VarChar);
                     command.Parameters["@ethnicity"].Value = ethnicity;
                     command.Parameters.Add("@gender", MySqlDbType.VarChar);
                     command.Parameters["@gender"].Value = gender;
+                    command.Parameters.Add("@ncaa", MySqlDbType.VarChar);
+                    command.Parameters["@ncaa"].Value = ncaa;
+                    command.Parameters.Add("@firstgen", MySqlDbType.VarChar);
+                    command.Parameters["@firstgen"].Value = firstgen;
+                    command.Parameters.Add("@onlineinterest", MySqlDbType.VarChar);
+                    command.Parameters["@onlineinterest"].Value = onlineinterest;
                     command.Parameters.Add("@studentnumber", MySqlDbType.VarChar);
                     command.Parameters["@studentnumber"].Value = _primarykey;
                     command.ExecuteNonQuery();
@@ -77,6 +85,7 @@ namespace Stride
             string gpa;
             string eduplan;
             string college;
+            string major;
             string careerpath;
             string ethnicity;
             string gender;
@@ -98,6 +107,7 @@ namespace Stride
                         gpa = reader.GetString("gpa");
                         eduplan = reader.GetString("eduplan");
                         college = reader.GetString("college");
+                        major = reader.GetString("major");
                         careerpath = reader.GetString("careerpath");
                         ethnicity = reader.GetString("ethnicity");
                         gender = reader.GetString("gender");
@@ -107,7 +117,7 @@ namespace Stride
                     }
                 }
             }
-            return new []{name, _primarykey, gpa, eduplan, college, careerpath, ethnicity, gender, ncaa, firstgen, onlineinterest};
+            return new []{name, _primarykey, gpa, eduplan, college, major, careerpath, ethnicity, gender, ncaa, firstgen, onlineinterest};
         }
     }
 }

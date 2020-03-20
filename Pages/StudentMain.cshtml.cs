@@ -20,17 +20,18 @@ namespace Stride.Pages
                 ViewData["gpa"] = studentData[2];
                 ViewData["eduplan"] = studentData[3];
                 ViewData["college"] = studentData[4];
-                ViewData["careerpath"] = studentData[5];
-                ViewData["ethnicity"] = studentData[6];
-                ViewData["gender"] = studentData[7];
-                ViewData["ncaa"] = studentData[8];
-                ViewData["firstgen"] = studentData[9];
-                ViewData["onlineinterest"] = studentData[10];
+                ViewData["major"] = studentData[5];
+                ViewData["careerpath"] = studentData[6];
+                ViewData["ethnicity"] = studentData[7];
+                ViewData["gender"] = studentData[8];
+                ViewData["ncaa"] = studentData[9];
+                ViewData["firstgen"] = studentData[10];
+                ViewData["onlineinterest"] = studentData[11];
             }
         }
-        public void OnPost(string eduplan, string college, string careerpath, string ethnicity, string gender)
+        public void OnPost(string eduplan, string college, string major, string careerpath, string ethnicity, string gender, string ncaa, string firstgen, string onlineinterest)
         {
-            Database.SaveStudentData(eduplan, college, careerpath, ethnicity, gender);
+            Database.SaveStudentData(eduplan, college, major, careerpath, ethnicity, gender, ncaa, firstgen, onlineinterest);
         }
     }
 }

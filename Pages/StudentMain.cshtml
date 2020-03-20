@@ -15,11 +15,11 @@
 <div class="limiter">
 	<div class="container-login100">
 		<div class="wrap-login100"> <!--Each of these divs is a single column, this first one is a basic information display with values from database-->
-			<span class="login100-form-title" style="padding-bottom: 38px">
-            	Student Information
-            </span>
-        	<form class="login100-form" method="post">
-        		<div class="wrap-input100">
+			<form class="login100-form" method="post">
+				<span class="login100-form-title" style="padding-bottom: 38px">
+            		Student Information
+	            </span>
+				<div class="wrap-input100">
         			<input class="input100 has-val" type="text" name="name" value='@ViewData["name"]' readonly/>
         			<span class="focus-input100" data-placeholder="Student Name"></span>
         		</div>
@@ -53,7 +53,15 @@
 					</select>
 					<span class="focus-input100" data-placeholder="Gender"></span>
 				</div>
-        	</form>
+				<div class="wrap-input100">
+					<select class="input100 select" name="firstgen" selectedval='@ViewData["firstgen"]'>
+						<option disabled selected value style="display:none"/>
+						<option>Yes</option>
+						<option>No</option>
+					</select>
+					<span class="focus-input100" data-placeholder="First Generation"></span>
+				</div>
+			</form>
         </div>
 		<div class="wrap-login100">
 			<form class="login100-form" method="post">
@@ -75,6 +83,10 @@
 					<span class="focus-input100" data-placeholder="Top College"></span>
 				</div>
 				<div class="wrap-input100">
+					<input class="input100" type="text" name="major" value='@ViewData["major"]'/>
+					<span class="focus-input100" data-placeholder="Major"></span>
+				</div>
+				<div class="wrap-input100">
 					<input class="input100" type="text" name="careerpath" value='@ViewData["careerpath"]'/>
 					<span class="focus-input100" data-placeholder="Career Path"></span>
 				</div>
@@ -85,14 +97,6 @@
 						<option>No</option>
 					</select>
 					<span class="focus-input100" data-placeholder="NCAA"></span>
-				</div>
-				<div class="wrap-input100">
-					<select class="input100 select" name="firstgen" selectedval='@ViewData["firstgen"]'>
-						<option disabled selected value style="display:none"/>
-						<option>Yes</option>
-						<option>No</option>
-					</select>
-					<span class="focus-input100" data-placeholder="First Generation"></span>
 				</div>
 				<div class="wrap-input100">
 					<select class="input100 select" name="onlineinterest" selectedval='@ViewData["onlineinterest"]'>

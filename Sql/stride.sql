@@ -15,6 +15,7 @@ CREATE TABLE Students (
     gpa decimal(3, 2),
     eduplan varchar(255),
     college varchar(255),
+    major varchar(255),
     careerpath varchar(255),
     ethnicity varchar(255),
     gender varchar(255),
@@ -24,7 +25,7 @@ CREATE TABLE Students (
     FOREIGN KEY (studentnumber) REFERENCES Users(username)
 );
 
-INSERT INTO Students VALUES ('1234567', 'Matilda', 'Watkins', 4.00, 'Bachelor''s Degree', 'U of U', 'Software Development', 'White or Caucasian', 'Female', 'No', 'Yes', 'Uninterested');
+INSERT INTO Students VALUES ('1234567', 'Matilda', 'Watkins', 4.00, 'Bachelor''s Degree', 'U of U', 'Computer Science', 'Software Development', 'White or Caucasian', 'Female', 'No', 'Yes', 'Uninterested');
 
 CREATE TABLE Counselors (
     username varchar(255) NOT NULL,
