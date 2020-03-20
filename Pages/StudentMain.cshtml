@@ -1,0 +1,95 @@
+﻿@page
+@model Stride.Pages.StudentMain
+
+@{
+    Layout = null;
+}
+
+<head>
+	<title>Stride</title>
+	<link rel="shortcut icon" href="images/icons/favicon.ico" type="image/x-icon"/>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body>
+<div class="limiter">
+	<div class="container-login100">
+		<div class="wrap-login100"> <!--Each of these divs is a single column, this first one is a basic information display with values from database-->
+			<span class="login100-form-title" style="padding-bottom: 38px">
+            	Student Information
+            </span>
+        	<form class="login100-form">
+        		<div class="wrap-input100">
+        			<input class="input100 has-val" type="text" name="name" value="Matilda Watkins" readonly/>
+        			<span class="focus-input100" data-placeholder="Student Name"></span>
+        		</div>
+        		<div class="wrap-input100">
+        			<input class="input100 has-val" type="text" name="studentnumber" value="1234567" readonly/>
+        			<span class="focus-input100" data-placeholder="Student Number"></span>
+        		</div>
+        		<div class="wrap-input100">
+        			<input class="input100 has-val" type="text" name="gpa" value="4.0" readonly/>
+        			<span class="focus-input100" data-placeholder="GPA"></span>
+        		</div>
+        	</form>
+        </div>
+		<div class="wrap-login100">
+			<form class="login100-form" method="post">
+				<div class="wrap-input100">
+					<select class="input100 select" name="eduplan" selectedval='@ViewData["eduplan"]'>
+						<option disabled selected value style="display:none"/>
+						<option>High School Diploma</option>
+						<option>Technical Training</option>
+						<option>Associate Degree</option>
+						<option>Bachelor's Degree</option>
+						<option>Advanced Degree</option>
+						<option>Military</option>
+						<option>Other</option>
+					</select>
+					<span class="focus-input100" data-placeholder="Education Plan"></span>
+				</div>
+				<div class="wrap-input100">
+					<input class="input100" type="text" name="college" value='@ViewData["college"]'/>
+					<span class="focus-input100" data-placeholder="Top College"></span>
+				</div>
+				<div class="wrap-input100">
+					<input class="input100" type="text" name="careerpath" value='@ViewData["careerpath"]'/>
+					<span class="focus-input100" data-placeholder="Career Path"></span>
+				</div>
+				<div class="wrap-input100">
+					<select class="input100 select" name="ethnicity" selectedval='@ViewData["ethnicity"]'>
+						<option disabled selected value style="display:none"/>
+						<option>White or Caucasian</option>
+						<option>Asian</option>
+						<option>Hispanic or Latino Origin</option>
+						<option>Black or African American</option>
+						<option>Native American or Alaska Native</option>
+						<option>Hawaiian or Other Pacific Islander</option>
+						<option>Two or more races</option>
+					</select>
+					<span class="focus-input100" data-placeholder="Ethnicity"></span>
+				</div>
+				<div class="wrap-input100">
+					<select class="input100 select" name="gender" selectedval='@ViewData["gender"]'>
+						<option disabled selected value style="display:none"/>
+						<option>Male</option>
+						<option>Female</option>
+						<option>Other</option>
+					</select>
+					<span class="focus-input100" data-placeholder="Gender"></span>
+				</div>
+				<div class="container-login100-form-btn">
+					<div class="wrap-login100-form-btn">
+						<div class="login100-form-bgbtn"></div>
+						<button class="login100-form-btn" type="submit">
+							Save
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<script src="js/jquery/jquery-3.2.1.min.js"></script>
+<script src="js/main.js"></script>
+</body>

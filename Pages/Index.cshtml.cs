@@ -6,25 +6,21 @@ namespace Stride.Pages
     [IgnoreAntiforgeryToken(Order = 1001)]
     public class IndexModel : PageModel
     {
-        public void OnGet()
+        public void OnPost(string user, string pass)
         {
-            if (!Database.IsAuth())
+            if (Database.Auth(user, pass))
             {
-                Response.Redirect("Login");
+                //once authenticated, go to main page
+                Response.Redirect("StudentMain");
             }
             else
             {
-                string[] studentData = Database.LoadSaveData();
-                ViewData["eduplan"] = studentData[0];
-                ViewData["college"] = studentData[1];
-                ViewData["careerpath"] = studentData[2];
-                ViewData["ethnicity"] = studentData[3];
-                ViewData["gender"] = studentData[4];
+                //show validation alert
+                ViewData["InvalidLogin"] = "alert-validate";
+                //keep username in the form, ensure that label stays up
+                ViewData["Username"] = user;
+                ViewData["HasUsername"] = "has-val";
             }
-        }
-        public void OnPost(string eduplan, string college, string careerpath, string ethnicity, string gender)
-        {
-            Database.SaveData(eduplan, college, careerpath, ethnicity, gender);
         }
     }
 }
