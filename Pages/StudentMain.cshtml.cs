@@ -23,6 +23,9 @@ namespace Stride.Pages
                 ViewData["careerpath"] = studentData[5];
                 ViewData["ethnicity"] = studentData[6];
                 ViewData["gender"] = studentData[7];
+                ViewData["ncaa"] = studentData[8];
+                ViewData["firstgen"] = studentData[9];
+                ViewData["onlineinterest"] = studentData[10];
             }
         }
         public void OnPost(string eduplan, string college, string careerpath, string ethnicity, string gender)

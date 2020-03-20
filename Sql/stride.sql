@@ -18,10 +18,13 @@ CREATE TABLE Students (
     careerpath varchar(255),
     ethnicity varchar(255),
     gender varchar(255),
+    ncaa varchar(255),
+    firstgen varchar(255),
+    onlineinterest varchar(255),
     FOREIGN KEY (studentnumber) REFERENCES Users(username)
 );
 
-INSERT INTO Students VALUES ('1234567', 'Matilda', 'Watkins', 4.00, 'Bachelor''s Degree', 'U of U', 'Software Development', 'White or Caucasian', 'Female');
+INSERT INTO Students VALUES ('1234567', 'Matilda', 'Watkins', 4.00, 'Bachelor''s Degree', 'U of U', 'Software Development', 'White or Caucasian', 'Female', 'No', 'Yes', 'Uninterested');
 
 CREATE TABLE Counselors (
     username varchar(255) NOT NULL,

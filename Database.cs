@@ -80,6 +80,9 @@ namespace Stride
             string careerpath;
             string ethnicity;
             string gender;
+            string ncaa;
+            string firstgen;
+            string onlineinterest;
             using (var conn = new MySqlConnection(Builder().ConnectionString))
             {
                 conn.Open();
@@ -98,10 +101,13 @@ namespace Stride
                         careerpath = reader.GetString("careerpath");
                         ethnicity = reader.GetString("ethnicity");
                         gender = reader.GetString("gender");
+                        ncaa = reader.GetString("ncaa");
+                        firstgen = reader.GetString("firstgen");
+                        onlineinterest = reader.GetString("onlineinterest");
                     }
                 }
             }
-            return new []{name, _primarykey, gpa, eduplan, college, careerpath, ethnicity, gender};
+            return new []{name, _primarykey, gpa, eduplan, college, careerpath, ethnicity, gender, ncaa, firstgen, onlineinterest};
         }
     }
 }

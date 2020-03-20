@@ -18,7 +18,7 @@
 			<span class="login100-form-title" style="padding-bottom: 38px">
             	Student Information
             </span>
-        	<form class="login100-form">
+        	<form class="login100-form" method="post">
         		<div class="wrap-input100">
         			<input class="input100 has-val" type="text" name="name" value='@ViewData["name"]' readonly/>
         			<span class="focus-input100" data-placeholder="Student Name"></span>
@@ -31,6 +31,28 @@
         			<input class="input100 has-val" type="text" name="gpa" value='@ViewData["gpa"]' readonly/>
         			<span class="focus-input100" data-placeholder="GPA"></span>
         		</div>
+				<div class="wrap-input100">
+					<select class="input100 select" name="ethnicity" selectedval='@ViewData["ethnicity"]'>
+						<option disabled selected value style="display:none"/>
+						<option>White or Caucasian</option>
+						<option>Asian</option>
+						<option>Hispanic or Latino Origin</option>
+						<option>Black or African American</option>
+						<option>Native American or Alaska Native</option>
+						<option>Hawaiian or Other Pacific Islander</option>
+						<option>Two or more races</option>
+					</select>
+					<span class="focus-input100" data-placeholder="Ethnicity"></span>
+				</div>
+				<div class="wrap-input100">
+					<select class="input100 select" name="gender" selectedval='@ViewData["gender"]'>
+						<option disabled selected value style="display:none"/>
+						<option>Male</option>
+						<option>Female</option>
+						<option>Other</option>
+					</select>
+					<span class="focus-input100" data-placeholder="Gender"></span>
+				</div>
         	</form>
         </div>
 		<div class="wrap-login100">
@@ -57,26 +79,29 @@
 					<span class="focus-input100" data-placeholder="Career Path"></span>
 				</div>
 				<div class="wrap-input100">
-					<select class="input100 select" name="ethnicity" selectedval='@ViewData["ethnicity"]'>
+					<select class="input100 select" name="ncaa" selectedval='@ViewData["ncaa"]'>
 						<option disabled selected value style="display:none"/>
-						<option>White or Caucasian</option>
-						<option>Asian</option>
-						<option>Hispanic or Latino Origin</option>
-						<option>Black or African American</option>
-						<option>Native American or Alaska Native</option>
-						<option>Hawaiian or Other Pacific Islander</option>
-						<option>Two or more races</option>
+						<option>Yes</option>
+						<option>No</option>
 					</select>
-					<span class="focus-input100" data-placeholder="Ethnicity"></span>
+					<span class="focus-input100" data-placeholder="NCAA"></span>
 				</div>
 				<div class="wrap-input100">
-					<select class="input100 select" name="gender" selectedval='@ViewData["gender"]'>
+					<select class="input100 select" name="firstgen" selectedval='@ViewData["firstgen"]'>
 						<option disabled selected value style="display:none"/>
-						<option>Male</option>
-						<option>Female</option>
-						<option>Other</option>
+						<option>Yes</option>
+						<option>No</option>
 					</select>
-					<span class="focus-input100" data-placeholder="Gender"></span>
+					<span class="focus-input100" data-placeholder="First Generation"></span>
+				</div>
+				<div class="wrap-input100">
+					<select class="input100 select" name="onlineinterest" selectedval='@ViewData["onlineinterest"]'>
+						<option disabled selected value style="display:none"/>
+						<option>Interested</option>
+						<option>Indifferent</option>
+						<option>Uninterested</option>
+					</select>
+					<span class="focus-input100" data-placeholder="Online Learning"></span>
 				</div>
 				<div class="container-login100-form-btn">
 					<div class="wrap-login100-form-btn">

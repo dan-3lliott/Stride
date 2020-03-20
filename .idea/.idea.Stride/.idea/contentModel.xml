@@ -20,6 +20,8 @@
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="Pages" t="Include">
+        <e p="CounselorMain.cshtml" t="Include" />
+        <e p="CounselorMain.cshtml.cs" t="Include" />
         <e p="Index.cshtml" t="Include" />
         <e p="Index.cshtml.cs" t="Include" />
         <e p="Shared" t="Include">
