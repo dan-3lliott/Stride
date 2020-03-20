@@ -17,7 +17,7 @@ namespace Stride
             };
             return builder;
         }
-        public static bool Auth(string user, string pass)
+        public static string Auth(string user, string pass)
         {
             using (var conn = new MySqlConnection(Builder().ConnectionString))
             {
@@ -35,8 +35,10 @@ namespace Stride
                         if (_auth)
                         {
                             _primarykey = user;
+                            reader.Read();
+                            return reader.GetString("usertype");
                         }
-                        return _auth;
+                        return null; //no auth
                     }
                 }
             }
@@ -45,7 +47,7 @@ namespace Stride
         {
             return _auth;
         }
-        public static void SaveData(string eduplan, string college, string careerpath, string ethnicity, string gender)
+        public static void SaveStudentData(string eduplan, string college, string careerpath, string ethnicity, string gender)
         {
             using (var conn = new MySqlConnection(Builder().ConnectionString))
             {
@@ -71,6 +73,8 @@ namespace Stride
         }
         public static string[] LoadSaveData()
         {
+            string name;
+            string gpa;
             string eduplan;
             string college;
             string careerpath;
@@ -87,6 +91,8 @@ namespace Stride
                     using (var reader = command.ExecuteReader())
                     {
                         reader.Read();
+                        name = reader.GetString("firstname") + " " + reader.GetString("lastname");
+                        gpa = reader.GetString("gpa");
                         eduplan = reader.GetString("eduplan");
                         college = reader.GetString("college");
                         careerpath = reader.GetString("careerpath");
@@ -95,7 +101,7 @@ namespace Stride
                     }
                 }
             }
-            return new []{eduplan, college, careerpath, ethnicity, gender};
+            return new []{name, _primarykey, gpa, eduplan, college, careerpath, ethnicity, gender};
         }
     }
 }

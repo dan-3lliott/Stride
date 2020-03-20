@@ -8,18 +8,25 @@ namespace Stride.Pages
     {
         public void OnPost(string user, string pass)
         {
-            if (Database.Auth(user, pass))
+            string auth = Database.Auth(user, pass);
+            switch (auth)
             {
-                //once authenticated, go to main page
-                Response.Redirect("StudentMain");
-            }
-            else
-            {
-                //show validation alert
-                ViewData["InvalidLogin"] = "alert-validate";
-                //keep username in the form, ensure that label stays up
-                ViewData["Username"] = user;
-                ViewData["HasUsername"] = "has-val";
+                case "student":
+                    Response.Redirect("StudentMain");
+                    break;
+                case "parent":
+                    Response.Redirect("StudentMain");
+                    break;
+                case "counselor":
+                    Response.Redirect("CounselorMain");
+                    break;
+                default: //authentication failed
+                    //show validation alert
+                    ViewData["InvalidLogin"] = "alert-validate";
+                    //keep username in the form, ensure that label stays up
+                    ViewData["Username"] = user;
+                    ViewData["HasUsername"] = "has-val";
+                    break;
             }
         }
     }

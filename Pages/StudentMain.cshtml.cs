@@ -15,16 +15,19 @@ namespace Stride.Pages
             else
             {
                 string[] studentData = Database.LoadSaveData();
-                ViewData["eduplan"] = studentData[0];
-                ViewData["college"] = studentData[1];
-                ViewData["careerpath"] = studentData[2];
-                ViewData["ethnicity"] = studentData[3];
-                ViewData["gender"] = studentData[4];
+                ViewData["name"] = studentData[0];
+                ViewData["studentnumber"] = studentData[1];
+                ViewData["gpa"] = studentData[2];
+                ViewData["eduplan"] = studentData[3];
+                ViewData["college"] = studentData[4];
+                ViewData["careerpath"] = studentData[5];
+                ViewData["ethnicity"] = studentData[6];
+                ViewData["gender"] = studentData[7];
             }
         }
         public void OnPost(string eduplan, string college, string careerpath, string ethnicity, string gender)
         {
-            Database.SaveData(eduplan, college, careerpath, ethnicity, gender);
+            Database.SaveStudentData(eduplan, college, careerpath, ethnicity, gender);
         }
     }
 }
