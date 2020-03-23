@@ -1,0 +1,30 @@
+﻿table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 8px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+tr:last-child {
+    border-bottom: 1px solid black;
+}
+
+th {
+    padding: 8px;
+    border: 1px solid black;
+}
+
+tr {
+    -webkit-transition: background 0.2s;
+    -o-transition: background 0.2s;
+    -moz-transition: background 0.2s;
+    transition: background 0.2s;
+}
+
+tr:not(:first-child):hover {
+    background: #21d4fd80;
+}
