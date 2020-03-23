@@ -6,7 +6,7 @@ CREATE TABLE Users (
     PRIMARY KEY(username)
 );
 
-INSERT INTO Users VALUES ('1234567', 'password', 'student', 'matildawatkins@gmail.com'), ('counselorlogin', 'password', 'counselor', 'kpoulton-timm@graniteschools.org');
+INSERT INTO Users VALUES ('1234567', 'password', 'student', 'matildawatkins@gmail.com'), ('counselorlogin', 'password', 'counselor', 'kpoulton-timm@graniteschools.org'), ('7654321', 'password', 'student', 'zachgreenberg@granitesd.org');
 
 CREATE TABLE Students (
     studentnumber varchar(255) NOT NULL,
@@ -26,6 +26,8 @@ CREATE TABLE Students (
 );
 
 INSERT INTO Students VALUES ('1234567', 'Matilda', 'Watkins', 4.00, 'Bachelor''s Degree', 'U of U', 'Computer Science', 'Software Development', 'White or Caucasian', 'Female', 'No', 'Yes', 'Uninterested');
+
+INSERT INTO Students VALUES ('7654321', 'Zach', 'Greenberg', 4.00, 'Bachelor''s Degree', 'MIT', 'Mechanical Engineering', 'Mechanical Engineering', 'White or Caucasian', 'Male', 'No', 'No', 'Uninterested');
 
 CREATE TABLE Counselors (
     username varchar(255) NOT NULL,
