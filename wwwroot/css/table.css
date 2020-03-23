@@ -26,5 +26,5 @@ tr {
 }
 
 tr:not(:first-child):hover {
-    background: #21d4fd80;
+    background: #6a7dfe99;
 }

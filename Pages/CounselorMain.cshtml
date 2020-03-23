@@ -38,34 +38,23 @@
 						<th>Online Learning</th>
 						<th>Ethnicity</th>
 					</tr>
-					<tr>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-					</tr>
-					<tr>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-					</tr>
+					@foreach(var student in Model.Students)
+					{
+						<tr>
+							<td>@student[0]</td>
+							<td>@student[1]</td>
+							<td>@student[2]</td>
+							<td>@student[3]</td>
+							<td>@student[4]</td>
+							<td>@student[5]</td>
+							<td>@student[6]</td>
+							<td>@student[7]</td>
+							<td>@student[8]</td>
+							<td>@student[9]</td>
+							<td>@student[10]</td>
+							<td>@student[11]</td>
+						</tr>
+					}
 					</tbody>
 				</table>
 			</div>
