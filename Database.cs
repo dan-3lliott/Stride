@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 
 namespace Stride
@@ -144,28 +142,28 @@ namespace Stride
                 conn.Open();
                 using (var command = conn.CreateCommand())
                 {
-                    command.CommandText = "SELECT * FROM students;";
+                    command.CommandText = "SELECT * FROM users JOIN students ON users.username = students.studentnumber;";
                     using (var reader = command.ExecuteReader())
                     {
-                        Console.WriteLine(reader.HasRows);
                         while (reader.Read())
                         {
-                            string firstname = reader.GetString("firstname");
-                            string lastname = reader.GetString("lastname");
-                            string studentnumber = reader.GetString("studentnumber");
-                            string gpa = reader.GetString("gpa");
-                            string eduplan = reader.GetString("eduplan");
-                            string college = reader.GetString("college");
-                            string major = reader.GetString("major");
-                            string careerpath = reader.GetString("careerpath");
-                            string ncaa = reader.GetString("ncaa");
-                            string firstgen = reader.GetString("firstgen");
-                            string onlineinterest = reader.GetString("onlineinterest");
-                            string ethnicity = reader.GetString("ethnicity");
+                            var firstname = reader.GetString("firstname");
+                            var lastname = reader.GetString("lastname");
+                            var studentnumber = reader.GetString("studentnumber");
+                            var gpa = reader.GetString("gpa");
+                            var eduplan = reader.GetString("eduplan");
+                            var college = reader.GetString("college");
+                            var major = reader.GetString("major");
+                            var careerpath = reader.GetString("careerpath");
+                            var ncaa = reader.GetString("ncaa");
+                            var firstgen = reader.GetString("firstgen");
+                            var onlineinterest = reader.GetString("onlineinterest");
+                            var ethnicity = reader.GetString("ethnicity");
+                            var email = reader.GetString("email");
                             students.Add(new[]
                             {
                                 firstname, lastname, studentnumber, gpa, eduplan, college, major, careerpath, ncaa,
-                                firstgen, onlineinterest, ethnicity
+                                firstgen, onlineinterest, ethnicity, email
                             });
                         }
                     }

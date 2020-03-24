@@ -40,7 +40,7 @@
 					</tr>
 					@foreach(var student in Model.Students)
 					{
-						<tr>
+						<tr email="@student[12]">
 							<td>@student[0]</td>
 							<td>@student[1]</td>
 							<td>@student[2]</td>
@@ -58,9 +58,28 @@
 					</tbody>
 				</table>
 			</div>
+			<div class="container-counselor-btn">
+				<div class="container-login100-form-btn counselor-btn">
+					<div class="wrap-login100-form-btn">
+						<div class="login100-form-bgbtn"></div>
+						<button class="login100-form-btn" onclick="deselect()">
+							Deselect All
+						</button>
+					</div>
+				</div>
+				<div class="container-login100-form-btn counselor-btn">
+					<div class="wrap-login100-form-btn">
+						<div class="login100-form-bgbtn"></div>
+						<button class="login100-form-btn" onclick="emailSelected()">
+							Email Selected
+						</button>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
 <script src="js/jquery/jquery-3.2.1.min.js"></script>
 <script src="js/main.js"></script>
+<script src="js/table.js"></script>
 </body>

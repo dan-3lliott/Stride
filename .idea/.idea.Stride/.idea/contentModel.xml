@@ -78,6 +78,7 @@
             <e p="jquery-3.2.1.min.js" t="Include" />
           </e>
           <e p="main.js" t="Include" />
+          <e p="table.js" t="Include" />
         </e>
       </e>
     </e>

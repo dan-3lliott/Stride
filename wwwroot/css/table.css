@@ -25,6 +25,25 @@ tr {
     transition: all 0.2s;
 }
 
+tr:not(:first-child).selected {
+    background: #6a7dfe;
+    background: -webkit-linear-gradient(left, #21d4fd, #b721ff);
+    background: -o-linear-gradient(left, #21d4fd, #b721ff);
+    background: -moz-linear-gradient(left, #21d4fd, #b721ff);
+    background: linear-gradient(left, #21d4fd, #b721ff);
+}
+
 tr:not(:first-child):hover {
-    background: #99999999;
+    cursor:pointer;
+}
+
+.counselor-btn {
+    width: 100%;
+    padding-left: 10px; 
+    padding-right: 10px;
+}
+
+.container-counselor-btn {
+    display: inline-flex; 
+    width: 100%;
 }
