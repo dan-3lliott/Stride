@@ -2,8 +2,10 @@
   <dictionary name="ellio">
     <words>
       <w>cellwithpadding</w>
+      <w>searchby</w>
       <w>studentnumber</w>
       <w>studentnumbers</w>
+      <w>studenttable</w>
     </words>
   </dictionary>
 </component>

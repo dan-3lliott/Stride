@@ -22,7 +22,7 @@
 				Students
 			</span>
 			<div>
-				<table>
+				<table id="studenttable">
 					<tbody>
 					<tr>
 						<th>First Name</th>
@@ -58,7 +58,38 @@
 					</tbody>
 				</table>
 			</div>
+			<div class="container-counselor-btn container-top">
+				<div class="wrap-input100 counselor-btn" style="width:80%;">
+                    <input class="input100" type="text" id="search" onkeyup="search()"/>
+                    <span class="focus-input100" data-placeholder="Search..."></span>
+                </div>
+				<div class="wrap-input100 counselor-btn" style="width:20%;">
+					<select class="input100 select" id="searchby" onchange="search()">
+						<option value="0">First Name</option>
+						<option value="1">Last Name</option>
+						<option value="2">Student Number</option>
+						<option value="3">GPA</option>
+						<option value="4">Education Plan</option>
+						<option value="5">Top College</option>
+						<option value="6">Major</option>
+						<option value="7">Career Path</option>
+						<option value="8">NCAA</option>
+						<option value="9">First Gen</option>
+						<option value="10">Online Learning</option>
+						<option value="11">Ethnicity</option>
+					</select>
+					<span class="focus-input100 focus-input100-reverse" data-placeholder="Search By..."></span>
+				</div>
+			</div>
 			<div class="container-counselor-btn">
+				<div class="container-login100-form-btn counselor-btn">
+					<div class="wrap-login100-form-btn">
+						<div class="login100-form-bgbtn"></div>
+						<button class="login100-form-btn" onclick="selectAll()">
+							Select All
+						</button>
+					</div>
+				</div>
 				<div class="container-login100-form-btn counselor-btn">
 					<div class="wrap-login100-form-btn">
 						<div class="login100-form-bgbtn"></div>

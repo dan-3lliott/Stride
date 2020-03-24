@@ -9,7 +9,7 @@ td {
     border-right: 1px solid black;
 }
 
-tr:last-child {
+tr:last-child, tr.last-row {
     border-bottom: 1px solid black;
 }
 
@@ -46,4 +46,16 @@ tr:not(:first-child):hover {
 .container-counselor-btn {
     display: inline-flex; 
     width: 100%;
+}
+
+.container-top {
+    padding-top: 38px;
+}
+
+.focus-input100-reverse::before {
+    background: #6a7dfe;
+    background: -webkit-linear-gradient(right, #21d4fd, #b721ff);
+    background: -o-linear-gradient(right, #21d4fd, #b721ff);
+    background: -moz-linear-gradient(right, #21d4fd, #b721ff);
+    background: linear-gradient(right, #21d4fd, #b721ff);
 }
