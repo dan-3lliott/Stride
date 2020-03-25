@@ -195,7 +195,9 @@ namespace Stride
                 conn.Open();
                 using (var command = conn.CreateCommand())
                 {
-                    command.CommandText = "SELECT * FROM users JOIN students ON users.username = students.studentnumber;";
+                    command.CommandText = "SELECT * FROM users JOIN students ON users.username = students.studentnumber WHERE students.counselor = @counselor;";
+                    command.Parameters.Add("@counselor", MySqlDbType.VarChar);
+                    command.Parameters["@counselor"].Value = _primarykey;
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
