@@ -63,7 +63,7 @@ namespace Stride
                 using (var command = conn.CreateCommand())
                 {
                     command.CommandText = "UPDATE students SET";
-                    
+
                     if (eduplan != null)
                     {
                         command.CommandText += ", eduplan = @eduplan";
@@ -127,11 +127,14 @@ namespace Stride
                         command.Parameters["@onlineinterest"].Value = onlineinterest;
                     }
 
-                    command.CommandText += " WHERE studentnumber = @studentnumber;";
-                    command.Parameters.Add("@studentnumber", MySqlDbType.VarChar);
-                    command.Parameters["@studentnumber"].Value = _primarykey;
-                    command.CommandText = command.CommandText.Remove(19, 1);
-                    command.ExecuteNonQuery();
+                    if (command.CommandText.Length > 19)
+                    {
+                        command.CommandText += " WHERE studentnumber = @studentnumber;";
+                        command.Parameters.Add("@studentnumber", MySqlDbType.VarChar);
+                        command.Parameters["@studentnumber"].Value = _primarykey;
+                        command.CommandText = command.CommandText.Remove(19, 1);
+                        command.ExecuteNonQuery();
+                    }
                 }
             }
         }
