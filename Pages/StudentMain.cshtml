@@ -63,10 +63,21 @@
 					</select>
 					<span class="focus-input100" data-placeholder="First Generation"></span>
 				</div>
+				<div class="container-login100-form-btn">
+                	<div class="wrap-login100-form-btn">
+                		<div class="login100-form-bgbtn"></div>
+                		<button class="login100-form-btn" type="submit">
+                			Update Information
+                		</button>
+                	</div>
+                </div>
 			</form>
         </div>
 		<div class="wrap-login100">
 			<form class="login100-form" method="post">
+				<span class="login100-form-title" style="padding-bottom: 38px">
+					Future Plans
+				</span>
 				<div class="wrap-input100">
 					<select class="input100 select" name="eduplan" selectedval='@ViewData["eduplan"]'>
 						<option disabled selected value style="display:none"/>
@@ -113,14 +124,50 @@
 					<div class="wrap-login100-form-btn">
 						<div class="login100-form-bgbtn"></div>
 						<button class="login100-form-btn" type="submit">
-							Save
+							Save Plans
 						</button>
 					</div>
 				</div>
 			</form>
 		</div>
+		<div class="wrap-login100">
+			<form class="login100-form">
+		        <span class="login100-form-title" style="padding-bottom: 38px">
+            		Counselor Information
+	            </span>
+				<div class="wrap-input100">
+        			<input class="input100 has-val" type="text" name="counselorname" value='@ViewData["counselorname"]' readonly/>
+        			<span class="focus-input100" data-placeholder="Counselor Name"></span>
+        		</div>
+        		<div class="wrap-input100">
+        			<input class="input100 has-val" type="text" name="counselornumber" value='@ViewData["counselornumber"]' readonly/>
+        			<span class="focus-input100" data-placeholder="Phone Number"></span>
+        		</div>
+			<div class="wrap-input100">
+				<input class="input100 has-val" type="text" name="counseloremail" id="counseloremail" value='@ViewData["counseloremail"]' readonly/>
+				<span class="focus-input100" data-placeholder="Email Address"></span>
+			</div>
+			
+	        </form>
+		        <div class="container-login100-form-btn">
+                    <div class="wrap-login100-form-btn">
+                      	<div class="login100-form-bgbtn"></div>
+                      	<button class="login100-form-btn" onclick="emailCounselor()">
+                      		Email Counselor
+                      	</button>
+                    </div>
+                </div>
+	    </div>
 	</div>
 </div>
 <script src="js/jquery/jquery-3.2.1.min.js"></script>
 <script src="js/main.js"></script>
+<script>
+    function emailCounselor() {
+        console.log("here");
+        let mail = document.createElement("a");
+        mail.href = "mailto:" + document.getElementById("counseloremail").value;
+        mail.click();
+    }
+</script>
 </body>

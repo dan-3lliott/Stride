@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 
 namespace Stride
@@ -61,28 +62,75 @@ namespace Stride
                 conn.Open();
                 using (var command = conn.CreateCommand())
                 {
-                    command.CommandText =
-                        "UPDATE students SET eduplan = @eduplan, college = @college, major = @major, careerpath = @careerpath, ethnicity = @ethnicity, gender = @gender, ncaa = @ncaa, firstgen = @firstgen, onlineinterest = @onlineinterest WHERE studentnumber = @studentnumber;";
-                    command.Parameters.Add("@eduplan", MySqlDbType.VarChar);
-                    command.Parameters["@eduplan"].Value = eduplan;
-                    command.Parameters.Add("@college", MySqlDbType.VarChar);
-                    command.Parameters["@college"].Value = college;
-                    command.Parameters.Add("@major", MySqlDbType.VarChar);
-                    command.Parameters["@major"].Value = major;
-                    command.Parameters.Add("@careerpath", MySqlDbType.VarChar);
-                    command.Parameters["@careerpath"].Value = careerpath;
-                    command.Parameters.Add("@ethnicity", MySqlDbType.VarChar);
-                    command.Parameters["@ethnicity"].Value = ethnicity;
-                    command.Parameters.Add("@gender", MySqlDbType.VarChar);
-                    command.Parameters["@gender"].Value = gender;
-                    command.Parameters.Add("@ncaa", MySqlDbType.VarChar);
-                    command.Parameters["@ncaa"].Value = ncaa;
-                    command.Parameters.Add("@firstgen", MySqlDbType.VarChar);
-                    command.Parameters["@firstgen"].Value = firstgen;
-                    command.Parameters.Add("@onlineinterest", MySqlDbType.VarChar);
-                    command.Parameters["@onlineinterest"].Value = onlineinterest;
+                    command.CommandText = "UPDATE students SET";
+                    
+                    if (eduplan != null)
+                    {
+                        command.CommandText += ", eduplan = @eduplan";
+                        command.Parameters.Add("@eduplan", MySqlDbType.VarChar);
+                        command.Parameters["@eduplan"].Value = eduplan;
+                    }
+
+                    if (college != null)
+                    {
+                        command.CommandText += ", college = @college";
+                        command.Parameters.Add("@college", MySqlDbType.VarChar);
+                        command.Parameters["@college"].Value = college;
+                    }
+
+                    if (major != null)
+                    {
+                        command.CommandText += ", major = @major";
+                        command.Parameters.Add("@major", MySqlDbType.VarChar);
+                        command.Parameters["@major"].Value = major;
+                    }
+
+                    if (careerpath != null)
+                    {
+                        command.CommandText += ", careerpath = @careerpath";
+                        command.Parameters.Add("@careerpath", MySqlDbType.VarChar);
+                        command.Parameters["@careerpath"].Value = careerpath;
+                    }
+
+                    if (ethnicity != null)
+                    {
+                        command.CommandText += ", ethnicity = @ethnicity";
+                        command.Parameters.Add("@ethnicity", MySqlDbType.VarChar);
+                        command.Parameters["@ethnicity"].Value = ethnicity;
+                    }
+
+                    if (gender != null)
+                    {
+                        command.CommandText += ", gender = @gender";
+                        command.Parameters.Add("@gender", MySqlDbType.VarChar);
+                        command.Parameters["@gender"].Value = gender;
+                    }
+
+                    if (ncaa != null)
+                    {
+                        command.CommandText += ", ncaa = @ncaa";
+                        command.Parameters.Add("@ncaa", MySqlDbType.VarChar);
+                        command.Parameters["@ncaa"].Value = ncaa;
+                    }
+
+                    if (firstgen != null)
+                    {
+                        command.CommandText += ", firstgen = @firstgen";
+                        command.Parameters.Add("@firstgen", MySqlDbType.VarChar);
+                        command.Parameters["@firstgen"].Value = firstgen;
+                    }
+
+                    if (onlineinterest != null)
+                    {
+                        command.CommandText += ", onlineinterest = @onlineinterest";
+                        command.Parameters.Add("@onlineinterest", MySqlDbType.VarChar);
+                        command.Parameters["@onlineinterest"].Value = onlineinterest;
+                    }
+
+                    command.CommandText += " WHERE studentnumber = @studentnumber;";
                     command.Parameters.Add("@studentnumber", MySqlDbType.VarChar);
                     command.Parameters["@studentnumber"].Value = _primarykey;
+                    command.CommandText = command.CommandText.Remove(19, 1);
                     command.ExecuteNonQuery();
                 }
             }
@@ -101,6 +149,7 @@ namespace Stride
             string ncaa;
             string firstgen;
             string onlineinterest;
+            string counselor;
             using (var conn = new MySqlConnection(Builder().ConnectionString))
             {
                 conn.Open();
@@ -123,6 +172,7 @@ namespace Stride
                         ncaa = reader.GetString("ncaa");
                         firstgen = reader.GetString("firstgen");
                         onlineinterest = reader.GetString("onlineinterest");
+                        counselor = reader.GetString("counselor");
                     }
                 }
             }
@@ -130,7 +180,7 @@ namespace Stride
             return new[]
             {
                 name, _primarykey, gpa, eduplan, college, major, careerpath, ethnicity, gender, ncaa, firstgen,
-                onlineinterest
+                onlineinterest, counselor
             };
         }
 
@@ -170,6 +220,47 @@ namespace Stride
                 }
             }
             return students;
+        }
+
+        public static string[] LoadCounselorInfo(string counselor)
+        {
+            string firstname;
+            string lastname;
+            string phonenumber;
+            string email;
+            using (var conn = new MySqlConnection(Builder().ConnectionString))
+            {
+                conn.Open();
+                using (var command = conn.CreateCommand())
+                {
+                    command.CommandText = "SELECT * FROM counselors WHERE username = @counselor;";
+                    command.Parameters.Add("@counselor", MySqlDbType.VarChar);
+                    command.Parameters["@counselor"].Value = counselor;
+                    using (var reader = command.ExecuteReader())
+                    {
+                        reader.Read();
+                        firstname = reader.GetString("firstname");
+                        lastname = reader.GetString("lastname");
+                        phonenumber = reader.GetString("phonenumber");
+                    }
+                }
+                using (var command = conn.CreateCommand())
+                {
+                    command.CommandText = "SELECT * FROM users WHERE username = @counselor;";
+                    command.Parameters.Add("@counselor", MySqlDbType.VarChar);
+                    command.Parameters["@counselor"].Value = counselor;
+                    using (var reader = command.ExecuteReader())
+                    {
+                        reader.Read();
+                        email = reader.GetString("email");
+                    }
+                }
+            }
+
+            return new[]
+            {
+                firstname, lastname, phonenumber, email
+            };
         }
     }
 }

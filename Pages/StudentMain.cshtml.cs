@@ -27,11 +27,16 @@ namespace Stride.Pages
                 ViewData["ncaa"] = studentData[9];
                 ViewData["firstgen"] = studentData[10];
                 ViewData["onlineinterest"] = studentData[11];
+                var counselorInfo = Database.LoadCounselorInfo(studentData[12]);
+                ViewData["counselorname"] = counselorInfo[0] + " " + counselorInfo[1];
+                ViewData["counselornumber"] = counselorInfo[2];
+                ViewData["counseloremail"] = counselorInfo[3];
             }
         }
         public void OnPost(string eduplan, string college, string major, string careerpath, string ethnicity, string gender, string ncaa, string firstgen, string onlineinterest)
         {
             Database.SaveStudentData(eduplan, college, major, careerpath, ethnicity, gender, ncaa, firstgen, onlineinterest);
+            OnGet();
         }
     }
 }
